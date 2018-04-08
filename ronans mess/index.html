@@ -1,20 +1,48 @@
 <html><head>
-<title>JS OTP Demo</title>
+<title></title>
 
    <style type="text/css">
+   
+   .pure-group{
+	position: relative;
+	z-index: 1;
+	background: rgba(171, 171, 171, .35);
+	max_width: 360px;
+	border-radius: 14px;
+	box-shadow:5px 4px 43px #000;
+	margin: 0 auto 100px;
+	padding: 45px;
+	text-align: center;
+}
+   .email{
+	position: relative;
+	z-index: 1;
+	background: rgba(171, 171, 171, .35);
+	max_width: 360px;
+	border-radius: 14px;
+	box-shadow:5px 4px 43px #000;
+	margin: 0 auto 100px;
+	padding: 45px;
+	text-align: center;
+}
+		.secret-2 
+		{
+		visibility: hidden;
+		}
+		
         .pure-message
         {
             visibility: hidden;
         }
+		
     </style>
 </head>
 <body style="width: 45em;">
-
 <p id="secret"> </p>
 <h2 id="code-1"></h2>
 
-<h1 id="jsotp-demo">JS OTP Demo</h1>
-<p>Javascript Implementation of 2 Factor Auth</p>
+<h1 id="jsotp-demo"></h1>
+<p></p>
 
 
 <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
@@ -34,26 +62,29 @@
       placeholder="secret code"></textarea>
     </fieldset>
 
-<p id="secret-2"> </p>
+<p hidden id="secret-2"> </p>
 
-<p> <span id="counter"></span></p>
-
+<p hidden > <span id="counter"></span></p>
+<h1 class="email"> 
+Please enter your email for two factor auth
+</h1>
 
     <fieldset class="pure-group">
-      <label for="email"><em>Your</em> Email Associated:</label>
-      <input id="email" name="email" type="email" value=""
+      <label for="email"><em>Your</em> Email</label>
+	  <br>
+      <input class="pure-group" id="email" name="email" type="email" value=""
       required placeholder="your.name@email.com"/>
       <span id="email-invalid" style="display:none">
         Must be a valid email address</span>
     </fieldset>
 
-   
-<button onclick="requestHotp()">set code</button>
+   <br>
+   <br>
 
 <br>
 <br>
 
-    <button class="button-success pure-button button-xlarge">
+    <button onclick="requestHotp()" class="button-success pure-button button-xlarge">
       <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
 
   </form>
@@ -85,7 +116,7 @@ var doge = hotp.getOtp(secret, 0);
 
 
 var counter = 0;
-var secret2 = "abcdefghijklmnop";
+var secret2 = "abcdefghijklmnoq";
 $('#secret-2').innerText = "Secret: " + secret2;
 $('#counter').innerText = counter;
 
