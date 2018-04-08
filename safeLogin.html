@@ -1,0 +1,133 @@
+<html><head>
+<title></title>
+
+   <style type="text/css">
+   
+   .pure-group{
+	position: relative;
+	z-index: 1;
+	background: rgba(171, 171, 171, .35);
+	max_width: 360px;
+	border-radius: 14px;
+	box-shadow:5px 4px 43px #000;
+	margin: 0 auto 100px;
+	padding: 45px;
+	text-align: center;
+}
+   .email{
+	position: relative;
+	z-index: 1;
+	background: rgba(171, 171, 171, .35);
+	max_width: 360px;
+	border-radius: 14px;
+	box-shadow:5px 4px 43px #000;
+	margin: 0 auto 100px;
+	padding: 45px;
+	text-align: center;
+}
+		.secret-2 
+		{
+		visibility: hidden;
+		}
+		
+        .pure-message
+        {
+            visibility: hidden;
+        }
+		
+    </style>
+</head>
+<body style="width: 45em;">
+<p id="secret"> </p>
+<h2 id="code-1"></h2>
+
+<h1 id="jsotp-demo"></h1>
+<p></p>
+
+
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+   
+   <link rel="stylesheet" href="https://cdn.rawgit.com/dwyl/learn-to-send-email-via-google-script-html-no-server/master/style.css">
+
+   
+ 
+  <form id="gform" method="POST" class="pure-form pure-form-stacked" data-email="trinityebuisness2@gmail.com"
+  action="https://script.google.com/macros/s/AKfycbyH7FEitTSwjHqGn6R6QtXoliIHANrU3Vu-fIgypg0aU-LOoWM/exec">
+    <!-- change the form action to your script url -->
+
+    <fieldset class="pure-message">
+      <label for="message">Message: </label>
+      <textarea type="password" id="code-2" name="message" rows="1" value= "requestHotp()"
+      placeholder="secret code"></textarea>
+    </fieldset>
+
+<p hidden id="secret-2"> </p>
+
+<p hidden > <span id="counter"></span></p>
+<h1 class="email"> 
+Please enter your email for two factor auth
+</h1>
+
+    <fieldset class="pure-group">
+      <label for="email"><em>Your</em> Email</label>
+	  <br>
+      <input class="pure-group" id="email" name="email" type="email" value=""
+      required placeholder="your.name@email.com"/>
+      <span id="email-invalid" style="display:none">
+        Must be a valid email address</span>
+    </fieldset>
+
+   <br>
+   <br>
+
+<br>
+<br>
+
+    <button onclick="requestHotp()" "class="button-success pure-button button-xlarge">
+      <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+  </form>
+  <br>
+  <br>
+<button class="button" onclick="window.location.href='tempLogin.html'"><span>Continue</span></button>
+  
+  <!-- Submit the Form to Google Using "AJAX" -->
+  <script data-cfasync="false" type="text/javascript"
+  src="https://cdn.rawgit.com/dwyl/learn-to-send-email-via-google-script-html-no-server/master/form-submission-handler.js"></script>
+  <!-- <script data-cfasync="false" type="text/javascript"
+  src="/form-submission-handler.js"></script> -->
+<!-- END -->
+<script src="dist/jsOTP.min.js"></script>
+<script>
+$ = function(sel) {
+  return document.querySelector(sel);
+};
+var hotp = new jsOTP.hotp();
+var doge = hotp.getOtp(secret, 0);
+var counter = 0;
+var secret2 = "abcdefghijklmnoq";
+$('#secret-2').innerText = "Secret: " + secret2;
+$('#counter').innerText = counter;
+var updateHotp = function(secret, counter, el) {
+  el.innerText = hotp.getOtp(secret, counter);
+}
+var updateCounter = function(counter, el) {
+  el.innerText = counter;
+}
+var requestHotp = function() {
+  updateHotp(secret2, counter, $('#code-2'));
+  updateCounter(++counter, $('#counter'));
+  
+  var fs = require("fs");
+var fileContent = code-2;
+
+fs.writeFile("./code.txt", fileContent, (err) => {
+	if (err) {
+		console.error(err);
+		return;
+	};
+	console.log("File has been created");
+});
+}
+</script>
+</body></html>
