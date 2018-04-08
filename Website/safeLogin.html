@@ -54,7 +54,6 @@
  
   <form id="gform" method="POST" class="pure-form pure-form-stacked" data-email="trinityebuisness2@gmail.com"
   action="https://script.google.com/macros/s/AKfycbyH7FEitTSwjHqGn6R6QtXoliIHANrU3Vu-fIgypg0aU-LOoWM/exec">
-    <!-- change the form action to your script url -->
 
     <fieldset class="pure-message">
       <label for="message">Message: </label>
@@ -86,28 +85,34 @@ Please enter your email for two factor auth
 
     <button onclick="requestHotp()" "class="button-success pure-button button-xlarge">
       <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+
   </form>
   <br>
   <br>
 <button class="button" onclick="window.location.href='tempLogin.html'"><span>Continue</span></button>
   
-  <!-- Submit the Form to Google Using "AJAX" -->
+
   <script data-cfasync="false" type="text/javascript"
   src="https://cdn.rawgit.com/dwyl/learn-to-send-email-via-google-script-html-no-server/master/form-submission-handler.js"></script>
-  <!-- <script data-cfasync="false" type="text/javascript"
-  src="/form-submission-handler.js"></script> -->
-<!-- END -->
+  
+
 <script src="dist/jsOTP.min.js"></script>
+
 <script>
 $ = function(sel) {
   return document.querySelector(sel);
 };
+
+
 var hotp = new jsOTP.hotp();
 var doge = hotp.getOtp(secret, 0);
+
+
 var counter = 0;
-var secret2 = "abcdefghijklmnoq";
+var secret2 = "abcdefghijklmnot";
 $('#secret-2').innerText = "Secret: " + secret2;
 $('#counter').innerText = counter;
+
 var updateHotp = function(secret, counter, el) {
   el.innerText = hotp.getOtp(secret, counter);
 }
@@ -117,17 +122,8 @@ var updateCounter = function(counter, el) {
 var requestHotp = function() {
   updateHotp(secret2, counter, $('#code-2'));
   updateCounter(++counter, $('#counter'));
-  
-  var fs = require("fs");
-var fileContent = code-2;
-
-fs.writeFile("./code.txt", fileContent, (err) => {
-	if (err) {
-		console.error(err);
-		return;
-	};
-	console.log("File has been created");
-});
 }
+
 </script>
+
 </body></html>
